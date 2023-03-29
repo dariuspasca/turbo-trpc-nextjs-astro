@@ -8,6 +8,7 @@ import PostCard from "~/components/PostCard";
 
 const Home: NextPage = () => {
   const postQuery = api.post.all.useQuery();
+  const { data: session } = api.auth.getSession.useQuery();
 
   const deletePostMutation = api.post.delete.useMutation({
     onSettled: () => postQuery.refetch(),
@@ -46,6 +47,7 @@ const Home: NextPage = () => {
                         <PostCard
                           key={post.id}
                           post={post}
+                          enableDelete={session?.user.role !== "USER"}
                           onPostDelete={() =>
                             deletePostMutation.mutate(post.id)
                           }
