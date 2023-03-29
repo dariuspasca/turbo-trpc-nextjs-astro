@@ -4,6 +4,7 @@ import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 
 import { api } from "~/utils/api";
+import ProtectedRoute from "~/components/ProtectedRoute";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -11,7 +12,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <ProtectedRoute>
+        <Component {...pageProps} />
+      </ProtectedRoute>
     </SessionProvider>
   );
 };
