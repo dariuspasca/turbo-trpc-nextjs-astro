@@ -9,7 +9,11 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const { status } = useSession({ required: true });
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <p className="text-lg">Loading...</p>
+      </div>
+    );
   }
 
   return children;

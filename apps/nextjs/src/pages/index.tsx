@@ -57,7 +57,7 @@ const Home: NextPage = () => {
               )}
             </div>
           ) : (
-            <p>Loading...</p>
+            <p className="pt-10 text-lg">Loading...</p>
           )}
         </div>
       </Layout>
