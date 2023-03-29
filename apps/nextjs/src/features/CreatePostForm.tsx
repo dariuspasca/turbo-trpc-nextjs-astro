@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Link from "next/link";
 
 import { api } from "~/utils/api";
 
@@ -19,31 +18,51 @@ const CreatePostForm: React.FC = () => {
 
   return (
     <div className="flex w-full max-w-2xl flex-col p-4">
-      <input
-        className="mb-2 rounded bg-white/10 p-2 text-white"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Title"
-      />
-      {error?.data?.zodError?.fieldErrors.title && (
-        <span className="mb-2 text-red-500">
-          {error.data.zodError.fieldErrors.title}
-        </span>
-      )}
-      <Link href="/yoo">Hello</Link>
-      <input
-        className="mb-2 rounded bg-white/10 p-2 text-white"
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
-        placeholder="Content"
-      />
-      {error?.data?.zodError?.fieldErrors.content && (
-        <span className="mb-2 text-red-500">
-          {error.data.zodError.fieldErrors.content}
-        </span>
-      )}
+      <div className="mb-4">
+        <label
+          className="mb-2 block text-sm font-bold text-gray-700"
+          htmlFor="title"
+        >
+          Title
+        </label>
+        <input
+          className="mb-2 w-full rounded bg-white/10 p-2"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Your blog title"
+          id="title"
+          type="text"
+        />
+        {error?.data?.zodError?.fieldErrors.title && (
+          <span className="mb-2 text-red-500">
+            {error.data.zodError.fieldErrors.title}
+          </span>
+        )}
+      </div>
+
+      <div className="mb-4">
+        <label
+          className="mb-2 block text-sm font-bold text-gray-700"
+          htmlFor="content"
+        >
+          Content
+        </label>
+        <input
+          className="mb-2 w-full rounded bg-white/10 p-2"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          placeholder="What's on your mind?"
+          id="content"
+          type="text"
+        />
+        {error?.data?.zodError?.fieldErrors.content && (
+          <span className="mb-2 text-red-500">
+            {error.data.zodError.fieldErrors.content}
+          </span>
+        )}
+      </div>
       <button
-        className="rounded bg-pink-400 p-2 font-bold"
+        className="rounded bg-gray-900/95 p-2 font-bold text-white"
         onClick={() => {
           mutate({
             title,
