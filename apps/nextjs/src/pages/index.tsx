@@ -28,7 +28,7 @@ const Home: NextPage = () => {
             </h1>
             <Link
               href="/create-post"
-              className="font-semibold text-gray-900 underline "
+              className="font-semibold text-gray-900 hover:underline"
             >
               Create Post
             </Link>
