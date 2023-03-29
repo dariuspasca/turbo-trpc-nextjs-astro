@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 import { api } from "~/utils/api";
 
@@ -8,11 +9,21 @@ const CreatePostForm: React.FC = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const { mutate, error } = api.post.create.useMutation({
+  const {
+    mutate,
+    isLoading: isCreating,
+    error,
+  } = api.post.create.useMutation({
     async onSuccess() {
       setTitle("");
       setContent("");
+      toast.success("New post created");
       await utils.post.all.invalidate();
+    },
+    onError(e) {
+      if (!e.data) {
+        toast.error("Failed to create post! Please try again later.");
+      }
     },
   });
 
@@ -62,7 +73,8 @@ const CreatePostForm: React.FC = () => {
         )}
       </div>
       <button
-        className="rounded bg-gray-900/95 p-2 font-bold text-white"
+        disabled={isCreating}
+        className="rounded border-2 border-transparent bg-gray-900/95 p-2 font-bold text-white hover:border-gray-900/95 hover:bg-transparent hover:text-gray-900"
         onClick={() => {
           mutate({
             title,
@@ -70,7 +82,7 @@ const CreatePostForm: React.FC = () => {
           });
         }}
       >
-        Create
+        {isCreating ? "Creating..." : "Create"}
       </button>
     </div>
   );
