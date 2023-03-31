@@ -33,6 +33,8 @@ model Account {
     id_token          String? // @db.Text
     session_state     String?
     user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 
     @@unique([provider, providerAccountId])
     @@index([userId])
@@ -67,6 +69,8 @@ model Post {
     published Boolean @default(false)
     author    User    @relation(fields: [authorId], references: [id])
     authorId  String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 
     @@index([authorId])
 }
