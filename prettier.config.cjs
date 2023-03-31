@@ -1,4 +1,3 @@
-
 /** @typedef  {import("@ianvs/prettier-plugin-sort-imports").PluginConfig} SortImportsConfig*/
 /** @typedef  {import("prettier").Config} PrettierConfig*/
 /** @typedef  {{ tailwindConfig: string }} TailwindConfig*/
@@ -20,7 +19,7 @@ const config = {
   importOrder: [
     "^(react/(.*)$)|^(react$)|^(react-native(.*)$)",
     "^(next/(.*)$)|^(next$)",
-    "^(expo(.*)$)|^(expo$)",
+    "^(astro(.*)$)|^(astro$)",
     "<THIRD_PARTY_MODULES>",
     "",
     "^@acme/(.*)$",

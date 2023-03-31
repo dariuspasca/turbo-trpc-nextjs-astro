@@ -17,6 +17,9 @@ prisma/db.sqlite-journal
 out/
 next-env.d.ts
 
+# astro
+.astro/
+
 # expo
 .expo/
 dist/
