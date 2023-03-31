@@ -18,12 +18,10 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="font-sans antialiased min-h-screen bg-gray-100 text-gray-900">
-    <div class="transition-colors">
-      <main class="mx-auto max-w-4xl px-4 md:px-0">
-        <br class="my-4" />
-        <Header />
-        <slot />
-      </main>
-    </div>
+    <main class="mx-auto max-w-4xl px-4 md:px-0">
+      <br class="my-4" />
+      <Header />
+      <slot />
+    </main>
   </body>
 </html>
