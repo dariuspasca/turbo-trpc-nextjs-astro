@@ -5,7 +5,7 @@ import superjson from "superjson";
 import type { AppRouter } from "@acme/api";
 
 const getBaseUrl = () => {
-  return `http://localhost:3000`;
+  return import.meta.env.SERVER_URL;
 };
 
 export const api = createTRPCProxyClient<AppRouter>({
