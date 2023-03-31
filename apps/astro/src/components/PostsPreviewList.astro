@@ -1,0 +1,15 @@
+---
+import type { RouterOutputs } from "@acme/api";
+
+import PostPreview from "./PostPreview.astro";
+
+interface Props {
+  posts: RouterOutputs["post"]["all"];
+}
+
+const { posts } = Astro.props;
+---
+
+<section class="flex flex-col gap-12 w-full p-4 md:p-0">
+  {posts.map((post) => <PostPreview post={post} />)}
+</section>

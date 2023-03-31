@@ -1,19 +1,20 @@
 ---
+import type { RouterOutputs } from "@acme/api";
+
 import { getMonthName } from "../utils/dateParser";
-import type { Post } from ".prisma/client";
 
 interface Props {
-  post: Post;
+  post: RouterOutputs["post"]["all"][number];
 }
 const {
-  post: { id, title, content, createdAt },
+  post: { id, title, content, createdAt, author },
 } = Astro.props;
 ---
 
 <div class="flex gap-6">
   <div class="sm:w-10 md:w-20">
     <div class="flex w-full flex-col text-center">
-      <span class="text-2xl font-semibold text-gray-500"
+      <span class="text-5xl font-semibold text-gray-500"
         >{new Date(createdAt).getDate()}</span
       >
       <span class="text-gray-400"
@@ -24,10 +25,11 @@ const {
     </div>
   </div>
   <div class="flex-1">
-    <h4 class="mb-1 text-xl font-semibold hover:underline">
+    <p class="text-xs">By {author.name}</p>
+    <h4 class="text-indigo-500 text-xl font-semibold hover:underline">
       <a href={`/blog/${id}`} title={title}>{title}</a>
     </h4>
-    <p class="line-clamp-2 hyphens-auto text-lg leading-6">
+    <p class="line-clamp-2 hyphens-auto leading-6">
       {content}
     </p>
   </div>
