@@ -10,8 +10,11 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      <NavigationHeader />
-      <main className="flex h-screen flex-col items-center">{children}</main>
+      <main className="mx-auto max-w-4xl px-4 md:px-0">
+        <br className="my-4" />
+        <NavigationHeader />
+        {children}
+      </main>
       <Toaster
         toastOptions={{
           className: "border-2 border-gray-900/80 rounded-lg",
