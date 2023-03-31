@@ -4,6 +4,8 @@ import superjson from "superjson";
 
 import type { AppRouter } from "@acme/api";
 
+export type { RouterInputs, RouterOutputs } from "@acme/api";
+
 const getBaseUrl = () => {
   return import.meta.env.SERVER_URL;
 };

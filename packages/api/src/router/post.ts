@@ -4,7 +4,10 @@ import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 
 export const postRouter = createTRPCRouter({
   all: publicProcedure.query(({ ctx }) => {
-    return ctx.prisma.post.findMany({ orderBy: { id: "desc" } });
+    return ctx.prisma.post.findMany({
+      orderBy: { id: "desc" },
+      include: { author: true },
+    });
   }),
   byId: publicProcedure
     .input(z.object({ id: z.string() }))
