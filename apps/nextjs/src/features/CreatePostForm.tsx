@@ -22,10 +22,10 @@ const CreatePostForm: React.FC = () => {
 
       if (
         process.env.NODE_ENV === "production" &&
-        process.env.VERCEL_DEPLOY_HOOK_URL
+        process.env.DEPLOY_HOOK_URL
       ) {
         // CALL HOOK
-        fetch(process.env.VERCEL_DEPLOY_HOOK_URL, {
+        fetch(process.env.DEPLOY_HOOK_URL, {
           method: "GET",
           headers: {
             "content-type": "application/json",
@@ -41,7 +41,7 @@ const CreatePostForm: React.FC = () => {
   });
 
   return (
-    <div className="flex w-full max-w-2xl flex-col p-4">
+    <div className="mt-4 flex w-full flex-col p-10">
       <div className="mb-4">
         <label
           className="mb-2 block text-sm font-bold text-gray-700"

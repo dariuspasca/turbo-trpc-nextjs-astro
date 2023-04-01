@@ -43,6 +43,6 @@
     "SKIP_ENV_VALIDATION",
     "VERCEL",
     "VERCEL_URL",
-    "VERCEL_DEPLOY_HOOK_URL"
+    "DEPLOY_HOOK_URL"
   ]
 }

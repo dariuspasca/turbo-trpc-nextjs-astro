@@ -41,7 +41,7 @@ const Home: NextPage = () => {
               {postQuery.data?.length === 0 ? (
                 <span>There are no posts!</span>
               ) : (
-                <div className="flex h-[40vh] justify-center overflow-auto px-4 text-2xl">
+                <div className="flex justify-center overflow-auto px-4 text-2xl">
                   <div className="flex w-full flex-col gap-4">
                     {postQuery.data?.map((post) => {
                       return (
