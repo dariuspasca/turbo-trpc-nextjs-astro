@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 import { api } from "~/utils/api";
 import Layout from "~/components/Layout";
@@ -40,7 +41,7 @@ const Home: NextPage = () => {
               {postQuery.data?.length === 0 ? (
                 <span>There are no posts!</span>
               ) : (
-                <div className="flex h-[40vh] justify-center overflow-y-scroll px-4 text-2xl">
+                <div className="flex h-[40vh] justify-center overflow-auto px-4 text-2xl">
                   <div className="flex w-full flex-col gap-4">
                     {postQuery.data?.map((post) => {
                       return (
@@ -49,7 +50,9 @@ const Home: NextPage = () => {
                           post={post}
                           enableDelete={session?.user.role !== "USER"}
                           onPostDelete={() =>
-                            deletePostMutation.mutate(post.id)
+                            deletePostMutation.mutate(post.id, {
+                              onSuccess: () => toast.success("Article deleted"),
+                            })
                           }
                         />
                       );

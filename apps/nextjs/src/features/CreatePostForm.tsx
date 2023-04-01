@@ -17,8 +17,21 @@ const CreatePostForm: React.FC = () => {
     async onSuccess() {
       setTitle("");
       setContent("");
-      toast.success("New post created");
+      toast.success("New article created");
       await utils.post.all.invalidate();
+
+      if (
+        process.env.NODE_ENV === "production" &&
+        process.env.VERCEL_DEPLOY_HOOK_URL
+      ) {
+        // CALL HOOK
+        fetch(process.env.VERCEL_DEPLOY_HOOK_URL, {
+          method: "GET",
+          headers: {
+            "content-type": "application/json",
+          },
+        }).catch((e) => console.log("Failed to update Astro app with err", e));
+      }
     },
     onError(e) {
       if (!e.data) {
