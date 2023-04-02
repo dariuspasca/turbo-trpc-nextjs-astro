@@ -41,7 +41,18 @@ const CreatePostForm: React.FC = () => {
   });
 
   return (
-    <div className="mt-4 flex w-full flex-col p-10">
+    <form
+      className="mt-4 flex w-full flex-col p-10"
+      onSubmit={(e) => {
+        // Prevent the browser from reloading the page
+        e.preventDefault();
+
+        mutate({
+          title,
+          content,
+        });
+      }}
+    >
       <div className="mb-4">
         <label
           className="mb-2 block text-sm font-bold text-gray-700"
@@ -86,18 +97,13 @@ const CreatePostForm: React.FC = () => {
         )}
       </div>
       <button
+        type="submit"
         disabled={isCreating}
-        className="rounded border-2 border-transparent bg-gray-900/95 p-2 font-bold text-white hover:border-gray-900/95 hover:bg-transparent hover:text-gray-900"
-        onClick={() => {
-          mutate({
-            title,
-            content,
-          });
-        }}
+        className="rounded border-2 border-transparent bg-gray-950/95 p-2 font-bold text-white hover:border-gray-950/95 hover:bg-transparent hover:text-gray-900"
       >
         {isCreating ? "Creating..." : "Create"}
       </button>
-    </div>
+    </form>
   );
 };
 
