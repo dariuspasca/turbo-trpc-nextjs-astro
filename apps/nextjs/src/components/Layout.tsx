@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Toaster } from "react-hot-toast";
 
-import NavigationHeader from "./NavigationHeader";
+import Footer from "~/components/Footer";
+import Header from "~/components/Header";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -10,10 +11,11 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      <main className="mx-auto max-w-4xl px-4 md:px-0">
+      <main className="mx-auto flex h-screen max-w-4xl flex-col">
         <br className="my-4" />
-        <NavigationHeader />
+        <Header />
         {children}
+        <Footer />
       </main>
       <Toaster
         toastOptions={{

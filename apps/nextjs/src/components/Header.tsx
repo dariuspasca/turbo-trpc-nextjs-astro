@@ -1,12 +1,11 @@
 import * as React from "react";
 import Link from "next/link";
-import { signOut } from "next-auth/react";
 
-const NavigationHeader: React.FC = () => {
+const Header: React.FC = () => {
   return (
     <header className="relative flex gap-4 border-b py-3">
       <div className="relative p-4">
-        <div className="absolute left-4 top-3/4 w-10 border-b-2 border-gray-800"></div>
+        <div className="absolute left-4 top-2/3 w-10 border-b-2 border-gray-800 md:top-3/4"></div>
         <div className="flex justify-between">
           <Link
             href="/"
@@ -24,14 +23,8 @@ const NavigationHeader: React.FC = () => {
           Minimal cms made with Nextjs
         </h2>
       </div>
-      <button
-        className="font-semibold text-gray-900 hover:underline"
-        onClick={() => void signOut()}
-      >
-        Sign out
-      </button>
     </header>
   );
 };
 
-export default NavigationHeader;
+export default Header;

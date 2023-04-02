@@ -29,7 +29,7 @@ const CreatePostForm: React.FC = () => {
 
   return (
     <form
-      className="mt-4 flex w-full flex-col p-10"
+      className="flex w-full flex-col"
       onSubmit={(e) => {
         // Prevent the browser from reloading the page
         e.preventDefault();
@@ -69,13 +69,15 @@ const CreatePostForm: React.FC = () => {
         >
           Content
         </label>
-        <input
+        <textarea
           className="mb-2 w-full rounded bg-white/10 p-2"
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder="What's on your mind?"
+          rows={5}
+          cols={33}
+          autoComplete="off"
           id="content"
-          type="text"
         />
         {error?.data?.zodError?.fieldErrors.content && (
           <span className="mb-2 text-red-500">

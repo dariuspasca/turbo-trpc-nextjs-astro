@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <div className="mt-12 flex flex-col items-center justify-center gap-8">
+        <div className="flex h-full flex-col items-center justify-center gap-8 p-4">
           <div className="flex w-full items-center justify-between">
             <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
               Articles
