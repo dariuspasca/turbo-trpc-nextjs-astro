@@ -59,6 +59,7 @@ importers:
       '@acme/db': '*'
       '@acme/eslint-config': '*'
       '@acme/tailwind-config': '*'
+      '@acme/tsconfig': '*'
       '@tanstack/react-query': ^4.28.0
       '@trpc/client': ^10.18.0
       '@trpc/next': ^10.18.0
@@ -84,6 +85,7 @@ importers:
       '@acme/auth': link:../../packages/auth
       '@acme/db': link:../../packages/db
       '@acme/tailwind-config': link:../../packages/config/tailwind
+      '@acme/tsconfig': link:../../packages/config/tsconfig
       '@tanstack/react-query': 4.28.0_biqbaboplfbrettd7655fr4n2y
       '@trpc/client': 10.18.0_@trpc+server@10.18.0
       '@trpc/next': 10.18.0_fk7ybuwqrs7skzzxcj6wjc5c3i
@@ -112,6 +114,7 @@ importers:
       '@acme/auth': '*'
       '@acme/db': '*'
       '@acme/eslint-config': '*'
+      '@acme/tsconfig': '*'
       '@trpc/client': ^10.18.0
       '@trpc/server': ^10.18.0
       eslint: ^8.36.0
@@ -119,14 +122,15 @@ importers:
       typescript: ^5.0.2
       zod: ^3.21.4
     dependencies:
-      '@acme/auth': link:../auth
-      '@acme/db': link:../db
       '@trpc/client': 10.18.0_@trpc+server@10.18.0
       '@trpc/server': 10.18.0
       superjson: 1.9.1
       zod: 3.21.4
     devDependencies:
+      '@acme/auth': link:../auth
+      '@acme/db': link:../db
       '@acme/eslint-config': link:../config/eslint
+      '@acme/tsconfig': link:../config/tsconfig
       eslint: 8.37.0
       typescript: 5.0.2
 
@@ -134,6 +138,7 @@ importers:
     specifiers:
       '@acme/db': '*'
       '@acme/eslint-config': '*'
+      '@acme/tsconfig': '*'
       '@next-auth/prisma-adapter': ^1.0.5
       eslint: ^8.36.0
       next: ^13.2.4
@@ -142,14 +147,15 @@ importers:
       react-dom: 18.2.0
       typescript: ^5.0.2
     dependencies:
-      '@acme/db': link:../db
       '@next-auth/prisma-adapter': 1.0.5_next-auth@4.20.1
       next: 13.2.4_biqbaboplfbrettd7655fr4n2y
       next-auth: 4.20.1_ld2jel3hspngo3u5lti2kgl2sq
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
+      '@acme/db': link:../db
       '@acme/eslint-config': link:../config/eslint
+      '@acme/tsconfig': link:../config/tsconfig
       eslint: 8.37.0
       typescript: 5.0.2
 
@@ -186,14 +192,19 @@ importers:
       postcss: 8.4.21
       tailwindcss: 3.3.0
 
+  packages/config/tsconfig:
+    specifiers: {}
+
   packages/db:
     specifiers:
+      '@acme/tsconfig': '*'
       '@prisma/client': ^4.12.0
       prisma: ^4.12.0
       typescript: ^5.0.2
     dependencies:
       '@prisma/client': 4.12.0_prisma@4.12.0
     devDependencies:
+      '@acme/tsconfig': link:../config/tsconfig
       prisma: 4.12.0
       typescript: 5.0.2
 

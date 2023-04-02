@@ -1,4 +1,7 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "@acme/tsconfig/base.json",
+  "compilerOptions": {
+    "lib": ["es2016", "esnext.asynciterable"]
+  },
   "include": ["index.ts"]
 }

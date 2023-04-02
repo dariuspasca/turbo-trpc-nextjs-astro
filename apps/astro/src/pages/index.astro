@@ -1,7 +1,7 @@
 ---
-import PostPreview from "../components/PostPreview.astro";
-import Layout from "../layouts/Layout.astro";
-import { api } from "./../utils/api";
+import { api } from "~/utils/api";
+import PostPreview from "~/components/PostPreview.astro";
+import Layout from "~/layouts/Layout.astro";
 
 const posts = await api.post.all.query();
 ---

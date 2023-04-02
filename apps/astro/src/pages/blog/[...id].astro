@@ -1,6 +1,6 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { api } from "./../../utils/api";
+import { api } from "~/utils/api";
+import Layout from "~/layouts/Layout.astro";
 
 export async function getStaticPaths() {
   const posts = await api.post.all.query();
