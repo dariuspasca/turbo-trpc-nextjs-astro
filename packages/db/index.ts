@@ -23,15 +23,16 @@ prisma.$use(async (params, next) => {
   if (
     process.env.NODE_ENV === "production" &&
     process.env.DEPLOY_HOOK_URL &&
-    params.model === "Post" &&
-    params.action === "create"
+    params.model === "Post"
   ) {
-    fetch(process.env.DEPLOY_HOOK_URL, {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
-    }).catch((e) => console.log("Failed to update Astro app with err", e));
+    if (params.action === "delete" || params.action === "create") {
+      fetch(process.env.DEPLOY_HOOK_URL, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+        },
+      }).catch((e) => console.log("Failed to update Astro app with err", e));
+    }
   }
 
   return result;
