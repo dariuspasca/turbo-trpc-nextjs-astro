@@ -19,8 +19,8 @@
   },
   "devDependencies": {
     "@acme/db": "*",
-    "@acme/tsconfig": "*",
     "@acme/eslint-config": "*",
+    "@acme/tsconfig": "*",
     "eslint": "^8.36.0",
     "typescript": "^5.0.2"
   }

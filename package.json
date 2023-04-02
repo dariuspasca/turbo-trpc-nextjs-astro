@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@acme/eslint-config": "^0.1.0",
+    "@acme/tsconfig": "^0.1.0",
     "@ianvs/prettier-plugin-sort-imports": "^3.7.2",
     "@manypkg/cli": "^0.20.0",
     "@types/prettier": "^2.7.2",
